@@ -222,7 +222,7 @@ echo "<hr>";?>
     for($i=0;$i<$anz;$i++) {
       $j=$teams[$i];?>
     <div class="row p-2">
-      <div class="col-1"><?php echo HTML_TeamIcon($j['name'],'width="24" alt=""');?></div><?php
+      <div class="col-1"><?php echo HTML_TeamIcon($j['name'],'title="' . $j['name'] . '"', ' alt="' . $j['name'] . '"');?></div><?php
       if ($edit == '') {?>
       <div class="col-5"><strong><?php echo $j['name']?></strong> <small>(<?php echo $j['city'];?>)</small></div>
       <div class="col-3"><?php echo $j['country'];?></div>

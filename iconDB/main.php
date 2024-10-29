@@ -116,10 +116,7 @@ if (!empty($teams)) {
         }
 ?>
       <div class="row p-2">
-        <div class="col-1 popup">
-            <?php echo HTML_TeamIcon($j['name'], " width='24' title='" . $j['name'] . "' alt=''"); ?>
-            <?php echo HTML_TeamIcon($j['name'], " class='large' width='80' title='" . $j['name'] . "' alt=''"); ?>
-        </div>
+        <div class="col-1"><?php echo HTML_TeamIcon($j['name'], " title='" . $j['name'] . "'", " alt='" . $j['name'] . "'"); ?></div>
         <div class="col-4"><strong><?php echo $j['name'] ?></strong> <small>(<?php echo $j['city'] ?>)</small></div>
         <div class="col-3"><?php echo $j['country'] ?></div>
         <div class="col-2"><a target="result" href="result.php?add=<?php echo $j['id'] ?>" title="<?php echo SELECT; ?>"><i class="bi bi-download" style="font-size: 1.3rem"></i></a></div>
