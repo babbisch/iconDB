@@ -32,25 +32,31 @@
 function findImage($key, $path, $imgType, $htmlParameter = '', $alternative_text = '')
 {
     $key = str_replace('/', '', $key);
+	if ($imgType == ".svg")
+           $htmlParameter .= " width='24'";
+	   
     if (!file_exists(ICON_PATH . $path . $key . $imgType)) {
         $key = preg_replace('/[^a-zA-Z0-9]/', '', $key);
     } else {
         $imgdata = getimagesize(ICON_PATH . $path . $key . $imgType);
-        return ("<img src='" . $path . rawurlencode($key) . "$imgType' {$imgdata[3]} " . $htmlParameter . ' /> ');
+        $size = isset($imgdata[3]) ? $imgdata[3] : '';
+        return ("<img src='" . $path . rawurlencode($key) . "$imgType' " . $size . '  ' . $htmlParameter . ' ' . $alternative_text . ' /> ');
     }
 
     if (!file_exists(ICON_PATH . $path . $key . $imgType)) {
         $key = preg_replace('/[I(A)0-9]+$/', '', $key);
     } else {
         $imgdata = getimagesize(ICON_PATH . $path . $key . $imgType);
-        return ("<img src='" . $path . rawurlencode($key) . "$imgType' {$imgdata[3]} " . $htmlParameter . ' /> ');
+        $size = isset($imgdata[3]) ? $imgdata[3] : '';
+        return ("<img src='" . $path . rawurlencode($key) . "$imgType' " . $size . '  ' . $htmlParameter . ' ' . $alternative_text . ' /> ');
     }
 
     if (!file_exists(ICON_PATH . $path . $key . $imgType)) {
         return $alternative_text;
     } else {
         $imgdata = getimagesize(ICON_PATH . $path . $key . $imgType);
-        return ("<img src='" . $path . rawurlencode($key) . "$imgType' {$imgdata[3]} " . $htmlParameter . ' /> ');
+        $size = isset($imgdata[3]) ? $imgdata[3] : '';
+        return ("<img src='" . $path . rawurlencode($key) . "$imgType' " . $size . '  ' . $htmlParameter . ' ' . $alternative_text . ' /> ');
     }
 }
 
