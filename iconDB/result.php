@@ -1,4 +1,4 @@
-+<?php
+<?php
 session_start();
 
 if (empty($_SESSION['ok'])) {
@@ -16,7 +16,7 @@ require_once("cfg.php");
 require_once("db_connect.php");
 
 if (isset($_POST['send']) && !empty($sendfiles)) {
-  require_once("zip.php");
+  require_once('zip.php');
 
   $zipfile = new zipfile();
   foreach($sendfiles as $file) {
@@ -116,7 +116,7 @@ if (isset($_SESSION['files']) && count($_SESSION['files'])>0) {
       $team=$j[0];?>
         <div class="row">
           <div class="col-1"><?php echo $i?>.</div>
-          <div class="col-1 d-flex align-items-center"><?php echo HTML_TeamIcon($team,"width='24'");?></div>
+          <div class="col-1 d-flex align-items-center"><?php echo HTML_TeamIcon($team,"","");?></div>
           <div class="col-5"><?php echo $team?><input type="hidden" name="file[]" value="<?php echo $file?>"></div>
           <div class="col-1"><a href="<?php echo $_SERVER['PHP_SELF'];?>?del=<?php echo $file?>" title="<?php echo DEL_FROM_ZIP;?>"><i class="bi bi-trash text-danger" style="font-size: 1.3rem"></i></a></div>
         </div>
