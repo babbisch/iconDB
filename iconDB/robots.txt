@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /adminer/
+Disallow: /dontinstall/
+Disallow: /icons/
