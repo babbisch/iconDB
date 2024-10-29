@@ -1,24 +1,24 @@
 # iconDB
 
-Ein  Datenbank für Mannschaftswappen. 
+Ein  Datenbank fÃ¼r Mannschaftswappen. 
 
 ### Systemvoraussetzungen
 - PHP 7.x
 - MySQL
 
 ### Installation
-Beim Erstaufruf erfolgt ein automatisierter Aufruf der Installation. Anzugeben sind hier die Credentials für die Datenbank als auch die zu nutzenden Grafiktypen.
+Beim Erstaufruf erfolgt ein automatisierter Aufruf der Installation. Anzugeben sind hier die Credentials fÃ¼r die Datenbank als auch die zu nutzenden Grafiktypen.
 
 ### Administration
-Die Administration kann über `/adminer/` aufgerufen werden, es gibt kein Passwort für den Administrationsbereich. Ggf. das Verzeichnus umbenennen.
+Die Administration kann Ã¼ber `/adminer/` aufgerufen werden, es gibt kein Passwort fÃ¼r den Administrationsbereich. Ggf. das Verzeichnus umbenennen.
 
 ### Massenimport bestehender Wappen
-Mittels `/import/dir2basae.php` können im Verzeichnis `/icons/` bereits vorab abgelegte Wappen in die Datenbank importiert werden.
+Mittels `/import/dir2basae.php` kÃ¶nnen im Verzeichnis `/icons/` bereits vorab abgelegte Wappen in die Datenbank importiert werden.
 
 
 # iconDB
 
-A database for teamlogos
+A database for team logos
 
 ### System requirements
 - PHP 7.x
