@@ -13,7 +13,7 @@ Beim Erstaufruf erfolgt ein automatisierter Aufruf der Installation. Anzugeben s
 Die Administration kann über `/adminer/` aufgerufen werden, es gibt kein Passwort für den Administrationsbereich. Ggf. das Verzeichnus umbenennen.
 
 ### Massenimport bestehender Wappen
-Mittels `/import/dir2basae.php` können im Verzeichnis `/icons/` bereits vorab abgelegte Wappen in die Datenbank importiert werden.
+Mittels `/import/dir2base.php` können im Verzeichnis `/icons/` bereits vorab abgelegte Wappen in die Datenbank importiert werden.
 
 
 # iconDB
@@ -31,4 +31,4 @@ On the first call the iinstallation starts automatically. You have to enter the 
 The administration ist accessable through `/adminer/`, no password needed. Might change the directory name.
 
 ### Massemport existing logos
-By using `/import/dir2basae.php` the images in the directory `/icons/` are inserted into the database.
+By using `/import/dir2base.php` the images in the directory `/icons/` are inserted into the database.
