@@ -6,18 +6,20 @@ include ('ini.php');
 $_SESSION['userlang'] = isset($_GET['userlang']) ? $_GET['userlang'] : (isset($_SESSION['userlang']) ? $_SESSION['userlang'] : 'de');
 $userlang = strtolower($_SESSION['userlang']);
 
-$lang = array('de' => array('SETUP_HEAD' => 'Installationsroutine für LMO-IconDataBase',
+$lang = array('de' => array('SETUP_HEAD' => 'Installationsroutine für IconDatabase',
         'SETUP_DB_HOST' => 'DB-Host (meistens "localhost")',
         'SETUP_DB_USER' => 'DB-User',
         'SETUP_DB_PASS' => 'DB-Passwort',
         'SETUP_DB_NAME' => 'DB-Name',
+        'SETUP_IMG_TYPES' => 'Dateiendungen',
         'SETUP_SUCCESS' => 'Installation erfolgreich',
         'NEXT' => 'weiter'),
-    'en' => array('SETUP_HEAD' => 'Installation for LMO-IconDataBase',
+    'en' => array('SETUP_HEAD' => 'Installation for IconDatabase',
         'SETUP_DB_HOST' => 'DB-Host (mostly "localhost")',
         'SETUP_DB_USER' => 'DB-User',
         'SETUP_DB_PASS' => 'DB-Password',
         'SETUP_DB_NAME' => 'DB-Name',
+        'SETUP_IMG_TYPES' => 'file extensions',
         'SETUP_SUCCESS' => 'Installation successfull',
         'NEXT' => 'next'));
 
@@ -34,7 +36,6 @@ $step = (isset($_GET['step']) ? $_GET['step'] : '0');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow" />
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -49,16 +50,24 @@ if ($step == '0') {
         <h3><?php echo $lang[$userlang]['SETUP_HEAD'] ?></h3>
       </div>
       <div class="row p-1">
-        <div class="col-3"><?php echo $lang[$userlang]['SETUP_DB_HOST'] ?></div><div class="col-2"><input class="form-control" type="text" name="dbhost" placeholder="localhost"></div>
+        <div class="col-3"><?php echo $lang[$userlang]['SETUP_DB_HOST'] ?></div>
+        <div class="col-2"><input class="form-control" type="text" name="dbhost" placeholder="localhost"></div>
       </div>
       <div class="row p-1">
-        <div class="col-3"><?php echo $lang[$userlang]['SETUP_DB_USER'] ?></div><div class="col-2"><input class="form-control" type="text" name="dbuser"></div>
+        <div class="col-3"><?php echo $lang[$userlang]['SETUP_DB_USER'] ?></div>
+        <div class="col-2"><input class="form-control" type="text" name="dbuser"></div>
       </div>
       <div class="row p-1">
-        <div class="col-3"><?php echo $lang[$userlang]['SETUP_DB_PASS'] ?></div><div class="col-2"><input class="form-control" type="password" name="dbpass"></div>
+        <div class="col-3"><?php echo $lang[$userlang]['SETUP_DB_PASS'] ?></div>
+        <div class="col-2"><input class="form-control" type="password" name="dbpass"></div>
       </div>
       <div class="row p-1">
-        <div class="col-3"><?php echo $lang[$userlang]['SETUP_DB_NAME'] ?></div><div class="col-2"><input class="form-control" type="text" name="dbname"></div>
+        <div class="col-3"><?php echo $lang[$userlang]['SETUP_DB_NAME'] ?></div>
+        <div class="col-2"><input class="form-control" type="text" name="dbname"></div>
+      </div>
+      <div class="row p-1">
+        <div class="col-3"><?php echo $lang[$userlang]['SETUP_IMG_TYPES'] ?></div>
+        <div class="col-2"><input class="form-control" type="text" name="imgtypes" placeholder=".svg,.png"></div>
       </div>
       <div class="row">
         <div class="col"><input class="btn btn-primary btn-sm" type="submit" value="<?php echo $lang[$userlang]['NEXT'] ?>"></div>
@@ -84,7 +93,7 @@ define('LMOID_DB', '" . $_POST['dbname'] . "');
 define('ICON_IMG', '".$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME'])."');
 define('ICON_URL', ICON_IMG.'icons/');
 define('ICON_PATH', str_replace('\\\\','/',dirname(__FILE__)));
-define('IMG_TYPES', '.svg,.png');
+define('IMG_TYPES', '" . $_POST['imgtypes'] . "');
 
 // other stuff
 define('MAX_RESULTS_PER_PAGE',40);  //Max Icons/Zip-Datei
