@@ -3,7 +3,7 @@
 Ein  Datenbank für Mannschaftswappen. 
 
 ### Systemvoraussetzungen
-- PHP 7.x
+- PHP 8.x
 - MySQL
 
 ### Installation
@@ -21,7 +21,7 @@ Mittels `/import/dir2base.php` können im Verzeichnis `/icons/` bereits vorab ab
 A database for team logos
 
 ### System requirements
-- PHP 7.x
+- PHP 8.x
 - MySQL
 
 ### Installation
